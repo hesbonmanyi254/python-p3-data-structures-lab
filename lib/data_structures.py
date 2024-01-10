@@ -1,38 +1,39 @@
-spicy_foods = [
-    {
-        "name": "Green Curry",
-        "cuisine": "Thai",
-        "heat_level": 9,
-    },
-    {
-        "name": "Buffalo Wings",
-        "cuisine": "American",
-        "heat_level": 3,
-    },
-    {
-        "name": "Mapo Tofu",
-        "cuisine": "Sichuan",
-        "heat_level": 6,
-    },
-]
+# data_structures.py
 
-def get_names(spicy_foods):
-    pass
+def get_names(foods):
+    """
+    Retrieves names from a list of foods.
 
-def get_spiciest_foods(spicy_foods):
-    pass
+    Args:
+    - foods (list): List of dictionaries representing foods.
+
+    Returns:
+    - list: List of names extracted from the input foods.
+    """
+    return [food['name'] for food in foods if 'name' in food]
+
+def get_spiciest_foods(foods):
+    """
+    Retrieves the spiciest foods from a list of foods.
+
+    Args:
+    - foods (list): List of dictionaries representing foods.
+
+    Returns:
+    - list: List of the spiciest foods.
+    """
+    if not foods:
+        return []
+
+    spiciest_level = max(food.get('heat_level', 0) for food in foods)
+    return [food for food in foods if food.get('heat_level', 0) == spiciest_level]
 
 def print_spicy_foods(spicy_foods):
-    pass
+    """
+    Prints the names of spicy foods.
 
-def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
-
-def print_spiciest_foods(spicy_foods):
-    pass
-
-def get_average_heat_level(spicy_foods):
-    pass
-
-def create_spicy_food(spicy_foods, spicy_food):
-    pass
+    Args:
+    - spicy_foods (list): List of dictionaries representing spicy foods.
+    """
+    for food in spicy_foods:
+        print(food['name'])
